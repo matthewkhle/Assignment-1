@@ -32,7 +32,7 @@ print(hypothesis)
 # --> add your Python code here
 for instance in db:
     if instance[4] == 'Yes':  # check for 'Yes' in 5th index, positive
-        for i in range(0, 3):
+        for i in range(0, len(hypothesis)):
             hypothesis[i] = instance[i]
         break  # break out of for loop
 
@@ -40,7 +40,7 @@ for instance in db:
 # --> add your Python code here
 for instance in db:
     if instance[4] == 'Yes':  # check for 'Yes' in 5th index, positive
-        for i in range(0, 3):
+         for i in range(0, len(hypothesis)):
             if instance[i] != hypothesis[i]:
                 hypothesis[i] = '?'
 
