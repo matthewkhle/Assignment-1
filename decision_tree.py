@@ -30,33 +30,75 @@ with open('contact_lens.csv', 'r') as csvfile:
 # 1m, 2h
 # 1no, 2yes
 # 1reduced, 2normal
-X = [
-    [1, 1, 1, 1],
-    [2, 1, 1, 2],
-    [3, 1, 1, 1],
-    [3, 1, 1, 2],
-    [2, 1, 2, 2],
-    [1, 1, 2, 2],
-    [1, 2, 1, 1],
-    [3, 1, 2, 1],
-    [2, 2, 1, 1],
-    [1, 1, 2, 1]
-]
+
+
+# ORIGNAL HARD CODED DATA
+# X = [
+#     [1, 1, 1, 1],
+#     [2, 1, 1, 2],
+#     [3, 1, 1, 1],
+#     [3, 1, 1, 2],
+#     [2, 1, 2, 2],
+#     [1, 1, 2, 2],
+#     [1, 2, 1, 1],
+#     [3, 1, 2, 1],
+#     [2, 2, 1, 1],
+#     [1, 1, 2, 1]
+# ]
+
+
+# Updated AFTER SUBMISSION (3/1/2021)
+for instance in db:
+    Xtemp = []
+
+    if instance[0] == 'Young':
+        Xtemp.append(1)
+    elif instance[0] == 'Presbyopic':
+        Xtemp.append(2)
+    elif instance[0] == 'Prepresbyopic':
+        Xtemp.append(3)
+
+    if instance[1] == 'Myope':
+        Xtemp.append(1)
+    elif instance[1] == 'Hypermetrope':
+        Xtemp.append(2)
+
+    if instance[2] == 'No':
+        Xtemp.append(1)
+    elif instance[2] == 'Yes':
+        Xtemp.append(2)
+
+    if instance[3] == 'Normal':
+        Xtemp.append(1)
+    elif instance[3] == 'Reduced':
+        Xtemp.append(2)
+
+    X.append(Xtemp)
+
 
 # transform the original training classes to numbers and add to the vector Y. For instance Yes = 1, No = 2, so Y = [1, 1, 2, 2, ...]
 # --> addd your Python code here
-Y = [
-    2,
-    2,
-    2,
-    1,
-    1,
-    1,
-    2,
-    2,
-    2,
-    1
-]
+
+
+# ORIGNAL HARD CODED DATA
+# Y = [
+#     2,
+#     2,
+#     2,
+#     1,
+#     1,
+#     1,
+#     2,
+#     2,
+#     2,
+#     1
+# ]
+
+    # Updated AFTER SUBMISSION (3/1/2021)
+    if instance[4] == 'Yes':
+        Y.append(1)
+    elif instance[4] == 'No':
+        Y.append(2)
 
 # fitting the decision tree to the data
 clf = tree.DecisionTreeClassifier(criterion='entropy')
